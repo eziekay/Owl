@@ -9,7 +9,7 @@ try {
 } catch { }
 if (-not $owlRunning) {
   $owlNode = Get-Command node -ErrorAction SilentlyContinue
-  $owlNodePath = if ($owlNode) { $owlNode.Source } else { 'C:\Users\ericz\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' }
+  $owlNodePath = if ($owlNode) { $owlNode.Source } else { Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' }
   if (-not (Test-Path -LiteralPath $owlNodePath)) { throw 'Node.js could not be found. Open Owl in Codex to restore its local runtime.' }
   $owlLogs = Join-Path $owlRoot 'data'
   New-Item -Path $owlLogs -ItemType Directory -Force | Out-Null
