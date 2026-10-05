@@ -1,0 +1,38 @@
+{
+  "title": "Owl",
+  "port": 4173,
+  "model": "gpt-6-luna",
+  "reasoningEffort": "xhigh",
+  "windowHours": 24,
+  "historyHours": 168,
+  "editorialDay": { "startHour": 9, "utcOffsetMinutes": -480 },
+  "researchBudget": {
+    "maxQueriesTotal": 10,
+    "maxPageOpensTotal": 15,
+    "maxCandidatesTotal": 40,
+    "maxFollowupsTotal": 5,
+    "maxResearchMinutes": 8
+  },
+  "storySelection": {
+    "targetMin": 5,
+    "maxStories": 10
+  },
+  "editorialPurpose": "Daily market research in content creation and game development, helping the reader understand attention, audience reactions, and consequential outliers as context for making popular commentary videos and understanding the game development market. Explain what happened, background, and why it matters in concise, easily understood language; do not suggest creative angles or game ideas.",
+  "sourceWatchlist": [
+    { "name": "Dexerto", "domains": ["dexerto.com"], "focus": "Creator and gaming reporting, controversies, and audience conversations." },
+    { "name": "IGN", "domains": ["ign.com"], "focus": "Major gaming developments, releases, reporting, and game context." },
+    { "name": "Streams Charts", "domains": ["streamscharts.com"], "focus": "Livestream audience data, platform trends, creator performance, and major streaming events." },
+    { "name": "PC Gamer", "domains": ["pcgamer.com"], "focus": "PC gaming reporting, releases, industry developments, and player conversations." },
+    { "name": "Techmeme", "domains": ["techmeme.com"], "focus": "A discovery map of prominent platform and technology reporting; follow original reporting when useful." },
+    { "name": "Reddit", "domains": ["reddit.com", "redd.it"], "noApi": true, "focus": "Permitted public pages and indexed discussion for sampled community reactions. No API or JSON endpoints." },
+    { "name": "X", "domains": ["x.com", "twitter.com"], "noApi": true, "focus": "Accessible public statements and indexed discussion. No API calls or logged-in automation." },
+    { "name": "Official YouTube sources", "domains": ["youtube.com", "youtu.be", "blog.youtube", "blog.google", "support.google.com"], "noApi": true, "focus": "YouTube's own announcements, YouTube-related Google posts and help pages, and official channels or public statements from relevant creators, developers, or organizations. Use accessible text or transcripts, not imagined video contents. No API calls." }
+  ],
+  "topics": [
+    "Content creators",
+    "News about gaming creators",
+    "Content creation platforms",
+    "AAA gaming",
+    "Indie gaming"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Owl",
+  "port": 4173,
+  "model": "gpt-6-luna",
+  "reasoningEffort": "high",
+  "windowHours": 24,
+  "historyHours": 168,
+  "editorialDay": { "startHour": 9, "utcOffsetMinutes": -480 },
+  "researchBudget": {
+    "maxQueriesTotal": 6,
+    "maxPageOpensTotal": 8,
+    "maxCandidatesTotal": 30,
+    "maxFollowupsTotal": 2,
+    "maxResearchMinutes": 5
+  },
+  "storySelection": {
+    "targetMin": 7,
+    "maxStories": 15
+  },
+  "goals": [
+    "Aggregate daily news relevant to market research in content creation and game development.",
+    "Make popular commentary videos.",
+    "Make popular video games."
+  ],
+  "sourceWatchlist": [
+    { "name": "Dexerto", "domains": ["dexerto.com"], "focus": "Creator and gaming reporting, controversies, and audience conversations." },
+    { "name": "IGN", "domains": ["ign.com"], "focus": "Major gaming developments, releases, reporting, and game context." },
+    { "name": "Streams Charts", "domains": ["streamscharts.com"], "focus": "Livestream audience data, platform trends, creator performance, and major streaming events." },
+    { "name": "PC Gamer", "domains": ["pcgamer.com"], "focus": "PC gaming reporting, releases, industry developments, and player conversations." },
+    { "name": "Techmeme", "domains": ["techmeme.com"], "focus": "A discovery map of prominent platform and technology reporting; follow original reporting when useful." },
+    { "name": "Reddit", "domains": ["reddit.com", "redd.it"], "noApi": true, "focus": "Permitted public pages and indexed discussion for sampled community reactions. No API or JSON endpoints." },
+    { "name": "X", "domains": ["x.com", "twitter.com"], "noApi": true, "focus": "Accessible public statements and indexed discussion. No API calls or logged-in automation." },
+    { "name": "Official YouTube sources", "domains": ["youtube.com", "youtu.be", "blog.youtube", "blog.google", "support.google.com"], "noApi": true, "focus": "YouTube's own announcements, YouTube-related Google posts and help pages, and official channels or public statements from relevant creators, developers, or organizations. Use accessible text or transcripts, not imagined video contents. No API calls." }
+  ],
+  "topics": [
+    "Content creators",
+    "Content creation platforms",
+    "AAA gaming",
+    "Indie gaming"
+  ]
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="A text-only market-research digest of creator and gaming conversations, updated when you ask.">
+  <title>Owl ⋅ Tubermancer's digest</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#newsletter">Skip to the newsletter</a>
+  <div class="page title-page">
+    <header>
+      <h1><button id="home-button" class="logo-button" type="button" aria-label="Owl main menu">Owl<span class="period">.</span></button></h1>
+      <p id="dateline" class="dateline">Last updated by <time id="last-updated">not yet</time><span id="update-duration"></span></p>
+    </header>
+    <div id="title-actions" class="title-actions">
+      <button id="update-button" type="button">update</button>
+      <button id="read-button" type="button">read</button>
+    </div>
+    <div id="title-notice" class="title-notice" role="status" aria-live="polite"></div>
+    <div id="update-progress" hidden>
+      <p id="update-task" role="status" aria-live="polite">Preparing recent-story context…</p>
+      <p id="update-eta" aria-live="off">Preparing update…</p>
+      <progress id="progress-bar" max="100" value="0" aria-label="Estimated update progress"></progress>
+    </div>
+    <div id="edition-status" class="edition-status" role="status" aria-live="polite" hidden></div>
+    <main id="newsletter" tabindex="-1" hidden></main>
+    <footer hidden>
+      <p class="end">That’s your edition.</p>
+      <section id="crumbs" class="crumbs" aria-labelledby="crumbs-heading" hidden></section>
+      <button id="other-editions-button" type="button" class="history-button footer-note" aria-expanded="false" aria-controls="edition-menu">Other editions</button>
+      <nav id="edition-menu" aria-label="Other editions" hidden>
+        <section aria-labelledby="recent-editions-heading">
+          <p id="recent-editions-heading" class="menu-heading">Past 24 hours</p>
+          <div id="edition-list-24h"></div>
+        </section>
+        <section aria-labelledby="week-editions-heading">
+          <p id="week-editions-heading" class="menu-heading">Past 7 days</p>
+          <div id="edition-list-7d"></div>
+        </section>
+      </nav>
+      <details id="method">
+        <summary>About Owl</summary>
+        <div class="disclosure-content">
+          <div id="method-copy"></div>
+          <div id="score-legend" aria-label="Owl score legend"></div>
+          <details id="source-watchlist" class="source-map">
+            <summary>Source watchlist</summary>
+            <div class="disclosure-content">
+              <p>A first pass, not a ranked list. Other permitted sources remain in scope.</p>
+              <ul id="watchlist-items"></ul>
+            </div>
+          </details>
+          <details id="topics" class="source-map">
+            <summary>Topics</summary>
+            <div class="disclosure-content"><ul id="topic-items"></ul></div>
+          </details>
+        </div>
+      </details>
+    </footer>
+  </div>
+</body>
+</html>
