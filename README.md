@@ -2,7 +2,7 @@
 
 **Public reader:** https://eziekay.github.io/Owl/ (published from this repository's `site/` folder)
 
-The public website is a read-only snapshot of the latest edition and recent history. It has no access to your computer or Codex sign-in. To refresh it, update Owl locally, run `node scripts/export-site.mjs`, then commit and push the changed `site/` files. GitHub Pages publishes the new snapshot after the push. Anyone can read the public site; someone who wants their own Owl can clone this repository, install Node.js 22 or newer and the Codex CLI, sign in to Codex, and run `npm start`. The local update feature requires that person's own Codex sign-in.
+The public website is a read-only snapshot of the latest edition and recent history. It has no access to your computer or Codex sign-in. Every successful local publication now exports `site/`, commits only that generated snapshot, and pushes `main`; the existing GitHub Pages workflow deploys the commit. Run `node scripts/sync-site.mjs` to retry the site sync without repeating research or republishing the local edition. Anyone can read the public site; someone who wants their own Owl can clone this repository, install Node.js 22 or newer and the Codex CLI, sign in to Codex, and run `npm start`. The local update feature requires that person's own Codex sign-in and the automatic public-site sync requires Git push access to the configured `origin`.
 
 The code is available under the MIT license. News summaries and citations in the exported snapshot remain attributed to their listed sources.
 

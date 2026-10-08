@@ -3,6 +3,17 @@ import { loadHistory, pruneHistory, validateContinuity } from './history.mjs';
 
 const input = process.argv[2] ?? 'data/draft.json';
 const archiveName = issue => issue.generatedAt.replace(/[:.]/gu, '-');
+async function syncGithubSite() {
+  if (process.env.OWL_SKIP_GITHUB_SYNC === '1') return;
+  try {
+    const { syncSite } = await import('./sync-site.mjs');
+    await syncSite();
+  } catch (cause) {
+    const error = new Error(cause.stderr?.trim() || cause.message);
+    error.githubSync = true;
+    throw error;
+  }
+}
 try {
   const draft = await readJson(input);
   const collection = await readJson('data/collection.json');
@@ -36,6 +47,7 @@ try {
   if (!storyCount && previous && issueSources(previous).length) {
     await atomicJson(`data/access-reports/${archiveName(issue)}.json`, issue);
     const removed = await pruneHistory();
+    await syncGithubSite();
     console.log(`No main-edition stories were selected. Kept the previous edition and saved this research pass${issue.nearMisses.length ? ` with ${issue.nearMisses.length} rejected candidate${issue.nearMisses.length === 1 ? '' : 's'}` : ''} in the retained history.`);
     if (removed) console.log(`Removed ${removed} expired history records older than ${config.historyHours} hours.`);
     process.exit(0);
@@ -46,10 +58,13 @@ try {
   await atomicJson('data/latest.json', issue);
   const removed = await pruneHistory();
   const safe = toPublicIssue(await readJson('data/latest.json'));
+  await syncGithubSite();
   console.log(`Published ${safe.date}: ${safe.stories.length} stories supported by ${safe.sourceCount} sources.`);
   console.log('The local website will read the edition automatically.');
   if (removed) console.log(`Removed ${removed} expired history records older than ${config.historyHours} hours.`);
 } catch (error) {
-  console.error(`Edition not published: ${error.message}`);
+  console.error(error.githubSync
+    ? `Owl updated locally, but GitHub Pages was not updated: ${error.message}`
+    : `Edition not published: ${error.message}`);
   process.exitCode = 1;
 }

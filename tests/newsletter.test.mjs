@@ -337,7 +337,9 @@ test('legacy categories flatten into stories with their own citations and retain
 
 test('one-draft CLI pipeline preserves a good legacy edition on an empty pass, then publishes a unified digest', async () => {
   const temporary = await mkdtemp(resolve(tmpdir(), 'owl-pipeline-test-'));
-  const run = name => execute(process.execPath, [`scripts/${name}.mjs`], { cwd: temporary, windowsHide: true });
+  const run = name => execute(process.execPath, [`scripts/${name}.mjs`], {
+    cwd: temporary, windowsHide: true, env: { ...process.env, OWL_SKIP_GITHUB_SYNC: '1' }
+  });
   const read = async name => JSON.parse(await readFile(resolve(temporary, `data/${name}.json`), 'utf8'));
   const save = (name, value) => writeFile(resolve(temporary, `data/${name}.json`), JSON.stringify(value));
   try {

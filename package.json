@@ -8,6 +8,7 @@
     "collect": "node scripts/collect.mjs",
     "publish": "node scripts/publish.mjs",
     "export-site": "node scripts/export-site.mjs",
+    "sync-site": "node scripts/sync-site.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": { "node": ">=22" }
